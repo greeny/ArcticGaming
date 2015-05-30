@@ -10,4 +10,7 @@ use Nette\Application\UI\Presenter;
 abstract class BasePresenter extends Presenter
 {
 
+	/** @var string @persistent */
+	public $locale;
+
 }

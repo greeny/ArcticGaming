@@ -8,7 +8,7 @@ namespace ArcticGaming\Model\Entities;
 use LeanMapper\Entity;
 
 
-class BaseEntity extends Entity
+abstract class BaseEntity extends Entity
 {
 
 }

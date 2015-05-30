@@ -1,0 +1,21 @@
+register:
+	errors:
+		nick:
+			required: Please enter nick.
+			invalid: Nick can contain only alphanumerical characters and dash.
+			duplicate: User with nick '%nick%' already exists.
+		password:
+			required: Please enter password.
+		passwordCheck:
+			required: Please enter password again to check for typing errors.
+			notMatching: 'Please double-check your password for typing errors, passwords does not match.'
+		email:
+			required: Please enter email.
+			invalid: Please enter valid email.
+			duplicate: User with email '%email%' already exists.
+	fields:
+		nick: Nick
+		password: Password
+		passwordCheck: Password again
+		email: Email
+		submit: Register

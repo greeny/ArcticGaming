@@ -1,0 +1,21 @@
+register:
+	errors:
+		nick:
+			required: Prosím zadej přezdívku.
+			invalid: 'Přezdívka může obsahovat pouze písmena anglické abecedy, čísla a pomlčku.'
+			duplicate: Uživatel s přezdívkou '%nick%' již existuje.
+		password:
+			required: Prosím zadej heslo.
+		passwordCheck:
+			required: 'Prosím zadej heslo znovu, aby se předešlo překlepům.'
+			notMatching: 'Překontroluj si prosím heslo, aby se předešlo překlepům.'
+		email:
+			required: Prosím zadej email.
+			invalid: Prosím zadej platný email.
+			duplicate: Uživatel s přezdívkou '%email%' již existuje.
+	fields:
+		nick: Přezdívka
+		password: Heslo
+		passwordCheck: 'Heslo znovu (pro kontrolu)'
+		email: Email
+		submit: Registrovat se

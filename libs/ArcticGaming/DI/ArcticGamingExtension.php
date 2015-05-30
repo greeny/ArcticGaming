@@ -54,6 +54,16 @@ class ArcticGamingExtension extends CompilerExtension
         }
     }
 
+
+	public function beforeCompile()
+	{
+		foreach ($this->getContainerBuilder()->getDefinitions() as $definition) {
+			if (strpos($definition->getClass(), 'ArcticGaming\\Forms\\') !== FALSE) {
+				$definition->addSetup('setTranslator');
+			}
+		}
+	}
+
     protected function configureConnection(ContainerBuilder $builder, array $config)
     {
         if (!isset($config['connection']) || !is_string($config['connection'])) {
