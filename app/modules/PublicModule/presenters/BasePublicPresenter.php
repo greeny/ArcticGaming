@@ -3,9 +3,9 @@
  * @author Tomáš Blatný
  */
 
-namespace Sandbox\PublicModule;
+namespace ArcticGaming\PublicModule;
 
-use Sandbox\BasePresenter;
+use ArcticGaming\BasePresenter;
 
 abstract class BasePublicPresenter extends BasePresenter
 {

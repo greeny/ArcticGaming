@@ -3,7 +3,7 @@
  * @author Tomáš Blatný
  */
 
-namespace Sandbox;
+namespace ArcticGaming;
 
 use Nette\Application\UI\Presenter;
 

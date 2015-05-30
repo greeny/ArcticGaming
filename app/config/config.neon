@@ -21,4 +21,4 @@ extensions:
 	arcticGaming: ArcticGaming\DI\ArcticGamingExtension
 
 services:
-	router: App\RouterFactory::createRouter
+	router: ArcticGaming\Router\RouterFactory::createRouter

@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace ArcticGaming\Router;
 
 use Nette\Application\IRouter;
 use Nette\Application\Routers\Route;

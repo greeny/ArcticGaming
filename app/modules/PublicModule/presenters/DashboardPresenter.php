@@ -1,6 +1,6 @@
 <?php
 
-namespace Sandbox\PublicModule;
+namespace ArcticGaming\PublicModule;
 
 
 class DashboardPresenter extends BasePublicPresenter
