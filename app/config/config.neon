@@ -1,0 +1,24 @@
+# WARNING: it is CRITICAL that this file & directory are NOT accessible directly via a web browser!
+# http://nette.org/security-warning
+
+parameters:
+
+
+php:
+	date.timezone: Europe/Prague
+
+
+application:
+	errorPresenter: Error
+	mapping:
+		*: ArcticGaming\*Module\*Presenter
+
+
+session:
+	expiration: 14 days
+
+extensions:
+	arcticGaming: ArcticGaming\DI\ArcticGamingExtension
+
+services:
+	router: App\RouterFactory::createRouter
