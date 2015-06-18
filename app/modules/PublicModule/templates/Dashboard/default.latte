@@ -1,7 +1,24 @@
 {block content}
 
-{*<div class="page-header">
-	<h1>Hello world</h1>
-</div>*}
+<div class="page-header">
+	<h1>{_templates.dashboard.default.title}</h1>
+</div>
 
-{control registerUserForm}
+<div class="row">
+	<div class="col-md-8">
+		
+	</div>
+	<div class="col-md-4">
+		<ul>
+			<li n:foreach="$matches as $match">
+				{if $match->tournament}
+					<a href="{$match->tournament->website}">{$match->tournament->name}</a> ({$match->team->game->name})
+				{else}
+					{$match->team->game->name}
+				{/if}
+				vs <a href="{$match->opponent->website}" title="{$match->opponent->name}">{$match->opponent->shortcut}</a>
+				starting {$match->start|date}
+			</li>
+		</ul>
+	</div>
+</div>

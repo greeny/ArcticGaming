@@ -1,0 +1,4 @@
+registration:
+	successful: 'Registration completed successfully, welcome!'
+login:
+	successful: 'Login successful, welcome back!'

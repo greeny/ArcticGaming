@@ -1,0 +1,23 @@
+default:
+	language:
+		english: English
+		czech: Czech
+	menu:
+		teams: Teams
+		matches: Matches
+dashboard:
+	default:
+		title: Arctic Gaming
+user:
+	register:
+		title: Register
+	profile:
+		title: Profile
+	login:
+		title: Login
+teams:
+	default:
+		title: Teams
+matches:
+	default:
+		title: Matches

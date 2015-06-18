@@ -7,6 +7,8 @@ namespace ArcticGaming\DI;
 
 use Nette\DI\CompilerExtension;
 use Nette\DI\ContainerBuilder;
+use Nette\PhpGenerator\ClassType;
+
 
 class ArcticGamingExtension extends CompilerExtension
 {
@@ -64,7 +66,14 @@ class ArcticGamingExtension extends CompilerExtension
 		}
 	}
 
-    protected function configureConnection(ContainerBuilder $builder, array $config)
+	public function afterCompile(ClassType $class)
+	{
+		$initialize = $class->getMethod('initialize');
+		$initialize->addBody('ArcticGaming\\Model\\Filters::register($this->getByType(?));', ['LeanMapper\\Connection']);
+	}
+
+
+	protected function configureConnection(ContainerBuilder $builder, array $config)
     {
         if (!isset($config['connection']) || !is_string($config['connection'])) {
             throw new \RuntimeException('Connection class definition is missing, or not (string).');

@@ -11,6 +11,7 @@ namespace ArcticGaming\Model\Entities;
  * @property string $password
  * @property string $email
  * @property string $role
+ * @property TeamUser[] $teams m:belongsToMany
  */
 class User extends BaseEntity
 {

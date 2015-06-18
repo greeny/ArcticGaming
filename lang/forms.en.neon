@@ -19,3 +19,15 @@ register:
 		passwordCheck: Password again
 		email: Email
 		submit: Register
+login:
+	errors:
+		nick:
+			required: Please enter nick or email.
+			invalid: User with nick or email '%nick%' does not exist.
+		password:
+			required: Please enter password.
+			invalid: Invalid password.
+	fields:
+		nick: Nick or email
+		password: Password
+		submit: Login

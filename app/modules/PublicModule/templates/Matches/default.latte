@@ -1,0 +1,16 @@
+{block content}
+<div class="page-header">
+	<h1 n:inner-block="title">{_templates.matches.default.title}</h1>
+</div>
+
+<ul>
+	<li n:foreach="$matches as $match">
+		{if $match->tournament}
+			<a href="{$match->tournament->website}">{$match->tournament->name}</a> ({$match->team->game->name})
+		{else}
+			{$match->team->game->name}
+		{/if}
+		vs <a href="{$match->opponent->website}" title="{$match->opponent->name}">{$match->opponent->shortcut}</a>
+		starting {$match->start|date}
+	</li>
+</ul>

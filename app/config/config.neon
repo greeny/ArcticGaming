@@ -33,8 +33,12 @@ services:
 
 	# repositories
 
+	- ArcticGaming\Model\Repositories\GameRepository
+	- ArcticGaming\Model\Repositories\MatchRepository
+	- ArcticGaming\Model\Repositories\TeamRepository
 	- ArcticGaming\Model\Repositories\UserRepository
 
 	# forms
 
 	- ArcticGaming\Forms\User\RegisterForm
+	- ArcticGaming\Forms\User\LoginForm

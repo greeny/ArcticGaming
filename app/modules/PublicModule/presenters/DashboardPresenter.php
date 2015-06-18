@@ -3,18 +3,27 @@
 namespace ArcticGaming\PublicModule;
 
 
-use ArcticGaming\Forms\User\RegisterForm;
+use ArcticGaming\Model\Entities\Match;
+use ArcticGaming\Model\Repositories\MatchRepository;
 
 
 class DashboardPresenter extends BasePublicPresenter
 {
 
-	/** @var RegisterForm @inject */
-	public $registerForm;
+	/** @var MatchRepository @inject */
+	public $matchRepository;
 
-	protected function createComponentRegisterUserForm()
+	/** @var Match[] */
+	private $matches;
+
+	public function actionDefault()
 	{
-		$form = $this->registerForm->create();
-		return $form;
+		$this->matches = $this->matchRepository->getFeatured();
+	}
+
+
+	public function renderDefault()
+	{
+		$this->template->matches = $this->matches;
 	}
 }

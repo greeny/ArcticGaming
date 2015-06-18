@@ -8,6 +8,7 @@ namespace ArcticGaming\Forms\User;
 use ArcticGaming\Forms\BaseForm;
 use ArcticGaming\Forms\Form;
 use ArcticGaming\Model\Repositories\UserRepository;
+use DibiDriverException;
 
 
 class RegisterForm extends BaseForm
@@ -48,7 +49,7 @@ class RegisterForm extends BaseForm
 	{
 		$values = $form->getValues();
 
-		if (!$this->userRepository->getByNick($values->nick)) {
+		if ($this->userRepository->getByNick($values->nick)) {
 			$form['nick']->addError(
 				$this->translator->translate('forms.register.errors.nick.duplicate', ['nick' => $values->nick])
 			);

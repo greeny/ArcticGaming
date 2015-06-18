@@ -15,6 +15,20 @@ class UserRepository extends BaseRepository
 {
 
 	/**
+	 * @param string $id
+	 * @return User|NULL
+	 */
+	public function getById($id)
+	{
+		return $this->tryCreateEntity(
+			$this->getSelection()
+				->where('[id] = ?', $id)
+				->fetch()
+		);
+	}
+
+
+	/**
 	 * @param string $nick
 	 * @return User|NULL
 	 */
