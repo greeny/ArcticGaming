@@ -14,6 +14,19 @@ use Nette\Security\Passwords;
 class UserRepository extends BaseRepository
 {
 
+
+	/**
+	 * @return User[]
+	 */
+	public function getAll()
+	{
+		return $this->createEntities(
+			$this->getSelection()
+				->orderBy('[id] ASC')
+				->fetchAll()
+		);
+	}
+
 	/**
 	 * @param string $id
 	 * @return User|NULL

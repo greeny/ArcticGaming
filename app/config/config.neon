@@ -31,6 +31,8 @@ translation:
 services:
 	router: ArcticGaming\Router\RouterFactory::createRouter
 
+	- ArcticGaming\Security\Authorizator
+
 	# repositories
 
 	- ArcticGaming\Model\Repositories\GameRepository
@@ -39,6 +41,8 @@ services:
 	- ArcticGaming\Model\Repositories\UserRepository
 
 	# forms
+
+	- ArcticGaming\Forms\Admin\User\CreateUserForm
 
 	- ArcticGaming\Forms\User\RegisterForm
 	- ArcticGaming\Forms\User\LoginForm

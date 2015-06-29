@@ -10,6 +10,7 @@ namespace ArcticGaming\Model\Entities;
  * @property Team $team m:hasOne
  * @property User $user m:hasOne
  * @property string $firstName
+ * @property-read string $fullNick m:useMethods
  * @property string $nick
  * @property string $lastName
  * @property string $role
@@ -18,4 +19,8 @@ namespace ArcticGaming\Model\Entities;
 class TeamUser extends BaseEntity
 {
 
+	public function getFullNick()
+	{
+		return trim($this->firstName . ' "' . $this->nick . '" ' . $this->lastName);
+	}
 }

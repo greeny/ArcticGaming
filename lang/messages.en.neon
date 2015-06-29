@@ -1,4 +1,7 @@
-registration:
-	successful: 'Registration completed successfully, welcome!'
-login:
-	successful: 'Login successful, welcome back!'
+user:
+	register:
+		success: 'Registration completed successfully, welcome!'
+	login:
+		success: 'Login successful, welcome back!'
+	logout:
+		success: 'Logout successful, see you soon!'

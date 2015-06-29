@@ -27,7 +27,7 @@ class RegisterForm extends BaseForm
 	{
 		$form->addText('nick', 'forms.register.fields.nick')
 			->setRequired('forms.register.errors.nick.required')
-			->addRule($form::PATTERN, 'forms.register.errors.nick.invalid', '[a-zA-Z0-9\\-]+');
+			->addRule($form::PATTERN, 'forms.register.errors.nick.invalid', '[a-zA-Z0-9][a-zA-Z0-9\\-]+');
 
 		$form->addPassword('password', 'forms.register.fields.password')
 			->setRequired('forms.register.errors.password.required');

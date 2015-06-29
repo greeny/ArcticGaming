@@ -10,4 +10,8 @@ use ArcticGaming\BasePresenter;
 abstract class BasePublicPresenter extends BasePresenter
 {
 
+	public function isAdmin()
+	{
+		return FALSE;
+	}
 }

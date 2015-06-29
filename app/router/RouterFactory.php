@@ -22,6 +22,16 @@ class RouterFactory
 			'action' => 'default',
 			'locale' => 'cs',
 		], Route::ONE_WAY);
+		$router[] = new Route('<locale cs|en>/admin/<presenter>/<action>[/<id>]', [
+			'module' => 'Admin',
+			'presenter' => 'Dashboard',
+			'action' => 'default',
+		]);
+		$router[] = new Route('<locale cs|en>/game/<slug>', [
+			'module' => 'Public',
+			'presenter' => 'Game',
+			'action' => 'detail',
+		]);
 		$router[] = new Route('<locale cs|en>/<presenter>/<action>[/<id>]', [
 			'module' => 'Public',
 			'presenter' => 'Dashboard',

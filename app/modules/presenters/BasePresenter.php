@@ -34,7 +34,10 @@ abstract class BasePresenter extends Presenter
 	{
 		parent::startup();
 		if ($this->getUser()->isLoggedIn()) {
-			$this->currentUser = $this->userRepository->getById($this->getUser()->getId());
+			if (!$this->currentUser = $this->userRepository->getById($this->getUser()->getId())) {
+				$this->getUser()->logout(TRUE);
+				$this->redirect('this');
+			}
 		}
 	}
 
@@ -44,6 +47,19 @@ abstract class BasePresenter extends Presenter
 		parent::beforeRender();
 		$this->template->currentUser = $this->currentUser;
 	}
+
+
+	public function handleLogout()
+	{
+		if ($this->getUser()->isLoggedIn()) {
+			$this->getUser()->logout(TRUE);
+			$this->flashSuccess('messages.user.logout.success');
+		}
+		$this->redirect(':Public:Dashboard:default');
+	}
+
+
+	abstract public function isAdmin();
 
 
 	protected function translatedFlashMessage($message, $args = NULL, $type = 'info')
@@ -60,7 +76,7 @@ abstract class BasePresenter extends Presenter
 
 	protected function flashError($message, $args = NULL)
 	{
-		return $this->translatedFlashMessage($message, $args, 'error');
+		return $this->translatedFlashMessage($message, $args, 'danger');
 	}
 
 }

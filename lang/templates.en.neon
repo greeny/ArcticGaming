@@ -1,7 +1,20 @@
 default:
+	admin:
+		menu:
+			brand: Administration
+			dashboard: Dashboard
+			users: Users
 	language:
+		title: Language
 		english: English
 		czech: Czech
+	user:
+		notLoggedIn: Unlogged
+		login: Login
+		register: Register
+		profile: Profile
+		logout: Logout
+		admin: Administration
 	menu:
 		teams: Teams
 		matches: Matches
@@ -12,7 +25,11 @@ user:
 	register:
 		title: Register
 	profile:
-		title: Profile
+		title: %nick%'s profile
+		memberOfTeams: 'Teams, in which %nick% is:'
+		inTeamKnownAs: '%team% (known as %nick%)'
+		playingRole: Playing %role%
+		playingGame: 'Game: %link%'
 	login:
 		title: Login
 teams:
@@ -21,3 +38,22 @@ teams:
 matches:
 	default:
 		title: Matches
+
+admin:
+	dashboard:
+		default:
+			title: Dashboard
+	user:
+		default:
+			title: Users
+			id: ID
+			nick: Nick
+			email: Email
+			role: Role
+			action: Action
+			edit: Edit
+			delete: Delete
+			foundUsers: 'Found %count% users.'
+			createNew: Create new user
+		create:
+			title: Create

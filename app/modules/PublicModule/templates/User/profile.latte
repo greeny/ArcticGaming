@@ -1,4 +1,21 @@
 {block content}
 <div class="page-header">
-	<h1 n:inner-block="title">{_templates.user.profile.title}</h1>
+	<h1 n:inner-block="title">{_templates.user.profile.title, [nick => $profile->nick]}</h1>
 </div>
+
+<h2>
+	{_templates.user.profile.memberOfTeams, [nick => $profile->nick]}
+</h2>
+
+{foreach $profile->teams as $teamUser}
+	<div class="well">
+		<h4>{_templates.user.profile.inTeamKnownAs, [team => $teamUser->team->name, nick => $teamUser->fullNick]}</h4>
+		{capture $link}
+			<a n:href="Game:detail, $teamUser->team->game->slug">{$teamUser->team->game->name}</a>
+		{/capture}
+		{!_templates.user.profile.playingGame, [link => $link]}
+		{if $teamUser->role}
+			<br>{_templates.user.profile.playingRole, [role => $teamUser->role]}
+		{/if}
+	</div>
+{/foreach}

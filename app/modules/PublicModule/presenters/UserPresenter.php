@@ -51,8 +51,8 @@ class UserPresenter extends BasePublicPresenter
 			$this->redirect('this', ['id' => NULL]);
 		}
 
-		if (!$this->profile = $this->userRepository->getById($id ?: $this->getUser()->getId())) {
-			$this->error('Profile not found');
+		if (!$this->profile = $id ? $this->userRepository->getById($id) : $this->currentUser) {
+			$this->redirect('Dashboard:default');
 		}
 	}
 
@@ -60,6 +60,7 @@ class UserPresenter extends BasePublicPresenter
 	public function renderProfile()
 	{
 		$this->template->profile = $this->profile;
+		$this->template->isOwnProfile = $this->profile->id === $this->getUser()->getId();
 	}
 
 
@@ -75,7 +76,7 @@ class UserPresenter extends BasePublicPresenter
 	{
 		$user = $this->userRepository->getByNick($form->getValues()->nick);
 		$this->getUser()->login(new Identity($user->id, $user->role, []));
-		$this->flashSuccess('messages.registration.successful');
+		$this->flashSuccess('messages.user.register.success');
 		if ($this->back) {
 			$this->restoreRequest($this->back);
 		}
@@ -93,7 +94,7 @@ class UserPresenter extends BasePublicPresenter
 
 	public function loginFormSuccess(Form $form)
 	{
-		$this->flashSuccess('messages.login.successful');
+		$this->flashSuccess('messages.user.login.success');
 		if ($this->back) {
 			$this->restoreRequest($this->back);
 		}
