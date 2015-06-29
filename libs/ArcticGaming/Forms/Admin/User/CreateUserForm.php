@@ -14,7 +14,7 @@ class CreateUserForm extends BaseForm
 
 	public function initialize(Form $form)
 	{
-		//$form->addText('');
+		// TODO
 	}
 
 
