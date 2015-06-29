@@ -9,7 +9,6 @@ php:
 
 
 application:
-	errorPresenter: Error
 	mapping:
 		*: ArcticGaming\*Module\*Presenter
 
