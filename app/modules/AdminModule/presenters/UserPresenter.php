@@ -6,6 +6,7 @@
 namespace ArcticGaming\AdminModule;
 
 use ArcticGaming\Forms\Admin\User\CreateUserForm;
+use ArcticGaming\Forms\Form;
 use ArcticGaming\Model\Entities\User;
 use ArcticGaming\Model\Repositories\UserRepository;
 
@@ -21,6 +22,9 @@ class UserPresenter extends BaseAdminPresenter
 	/** @var User[] */
 	private $users;
 
+	/** @var User */
+	private $u;
+
 
 	public function actionDefault()
 	{
@@ -34,6 +38,14 @@ class UserPresenter extends BaseAdminPresenter
 	}
 
 
+	public function actionEdit($id)
+	{
+		if (!$this->u = $this->userRepository->getById($id)) {
+			$this->redirect('default');
+		}
+	}
+
+
 	protected function createComponentCreateUserForm()
 	{
 		$form = $this->createUserForm->create();
@@ -42,9 +54,15 @@ class UserPresenter extends BaseAdminPresenter
 	}
 
 
-	public function createUserFormSuccess()
+	public function createUserFormSuccess(Form $form)
 	{
 		$this->flashSuccess('messages.admin.user.create.success');
 		$this->redirect('default');
+	}
+
+
+	protected function createComponentEditUserForm()
+	{
+
 	}
 }

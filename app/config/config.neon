@@ -31,17 +31,24 @@ services:
 	router: ArcticGaming\Router\RouterFactory::createRouter
 
 	- ArcticGaming\Security\Authorizator
+	- ArcticGaming\Templating\Helpers
+	- ArcticGaming\Translation\DateTimeFormatter
 
 	# repositories
 
 	- ArcticGaming\Model\Repositories\GameRepository
+	- ArcticGaming\Model\Repositories\ImageRepository
 	- ArcticGaming\Model\Repositories\MatchRepository
+	- ArcticGaming\Model\Repositories\OpponentRepository
 	- ArcticGaming\Model\Repositories\TeamRepository
+	- ArcticGaming\Model\Repositories\TournamentRepository
 	- ArcticGaming\Model\Repositories\UserRepository
 
 	# forms
 
 	- ArcticGaming\Forms\Admin\User\CreateUserForm
+
+	- ArcticGaming\Forms\Match\FilterForm
 
 	- ArcticGaming\Forms\User\RegisterForm
 	- ArcticGaming\Forms\User\LoginForm

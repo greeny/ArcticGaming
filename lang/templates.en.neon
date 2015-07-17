@@ -38,6 +38,11 @@ teams:
 matches:
 	default:
 		title: Matches
+		game: Game
+		tournament: Tournament
+		opponent: Opponent
+		score: Score
+		start: Start
 
 admin:
 	dashboard:

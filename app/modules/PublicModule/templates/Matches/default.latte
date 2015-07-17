@@ -3,14 +3,53 @@
 	<h1 n:inner-block="title">{_templates.matches.default.title}</h1>
 </div>
 
-<ul>
-	<li n:foreach="$matches as $match">
-		{if $match->tournament}
-			<a href="{$match->tournament->website}">{$match->tournament->name}</a> ({$match->team->game->name})
-		{else}
-			{$match->team->game->name}
-		{/if}
-		vs <a href="{$match->opponent->website}" title="{$match->opponent->name}">{$match->opponent->shortcut}</a>
-		starting {$match->start|date}
-	</li>
-</ul>
+{control filterForm}
+
+<div class="table-responsive">
+	<table class="table table-condensed table-hover table-striped">
+		<thead>
+			<tr>
+				<th>{_templates.matches.default.game}</th>
+				<th>{_templates.matches.default.opponent}</th>
+				<th>{_templates.matches.default.tournament}</th>
+				<th>{_templates.matches.default.score}</th>
+				<th>{_templates.matches.default.start}</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr n:foreach="$matches as $match">
+				<td>
+					{if $match->team->game->image}
+						<img src="{$basePath}{$match->team->game->image->path}" width="20" height="20" title="{$match->team->game->image->title}">
+					{else}
+						{$match->team->game->name}
+					{/if}
+				</td>
+				<td>
+					<a n:tag-if="$match->opponent->website" href="{$match->opponent->website}" title="{$match->opponent->name}">
+						{$match->opponent->shortcut}
+					</a>
+				</td>
+				<td>
+					{if $match->tournament}
+						<a n:tag-if="$match->tournament->website" href="{$match->tournament->website}">
+							{$match->tournament->name}
+						</a>
+					{else}
+						-
+					{/if}
+				</td>
+				<td>
+					{if $match->resultHome === NULL}
+						-
+					{else}
+						<span class="text-success">{$match->resultHome}</span> : <span class="text-danger">{$match->resultOpponent}</span>
+					{/if}
+				</td>
+				<td>
+					{$match->start|datetime}
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

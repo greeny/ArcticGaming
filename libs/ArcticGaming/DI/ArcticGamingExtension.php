@@ -59,17 +59,22 @@ class ArcticGamingExtension extends CompilerExtension
 
 	public function beforeCompile()
 	{
-		foreach ($this->getContainerBuilder()->getDefinitions() as $definition) {
+		$builder = $this->getContainerBuilder();
+		foreach ($builder->getDefinitions() as $definition) {
 			if (strpos($definition->getClass(), 'ArcticGaming\\Forms\\') !== FALSE) {
 				$definition->addSetup('setTranslator');
 			}
 		}
+
+		$builder->getDefinition($builder->getByType('Nette\Bridges\ApplicationLatte\ILatteFactory'))
+			->addSetup('$this->getByType(?)->register($service);', ['ArcticGaming\\Templating\\Helpers']);
 	}
 
 	public function afterCompile(ClassType $class)
 	{
 		$initialize = $class->getMethod('initialize');
 		$initialize->addBody('ArcticGaming\\Model\\Filters::register($this->getByType(?));', ['LeanMapper\\Connection']);
+		//$initialize->addBody('$this->getByType(?)->register();', ['ArcticGaming\\Templating\\Helpers']);
 	}
 
 

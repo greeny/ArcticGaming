@@ -31,3 +31,26 @@ login:
 		nick: Nick or email
 		password: Password
 		submit: Login
+match:
+	fields:
+		game: Game
+		tournament: Tournament
+		opponent: Opponent
+		result: Result
+		submit: Filter
+	labels:
+		allGames: All games
+		allTournaments: All tournaments
+		allOpponents: All opponents
+		allResults: All results
+		wonGames: Won games
+		lostGames: Lost games
+		drawGames: Draw games
+		withoutResultGames: Games without result
+
+createUser:
+	fields:
+		create: Create
+editUser:
+	fields:
+		edit: Edit

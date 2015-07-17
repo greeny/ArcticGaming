@@ -5,27 +5,16 @@
 
 namespace ArcticGaming\Forms\Admin\User;
 
-use ArcticGaming\Forms\BaseForm;
 use ArcticGaming\Forms\Form;
+use ArcticGaming\Forms\User\BaseUserCreateForm;
 
 
-class CreateUserForm extends BaseForm
+class CreateUserForm extends BaseUserCreateForm
 {
 
 	public function initialize(Form $form)
 	{
-		// TODO
-	}
-
-
-	public function validateData(Form $form)
-	{
-		// TODO: Implement validateData() method.
-	}
-
-
-	public function formSuccess(Form $form)
-	{
-		// TODO: Implement formSuccess() method.
+		parent::initialize($form);
+		$form['register']->caption = $this->translator->translate('forms.createUser.fields.create');
 	}
 }

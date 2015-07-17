@@ -5,7 +5,7 @@
 
 namespace ArcticGaming\Model\Repositories;
 
-class GameRepository extends BaseRepository
+class TournamentRepository extends BaseRepository
 {
 
 	/**

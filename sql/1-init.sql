@@ -1,16 +1,31 @@
-SET NAMES utf8;
-SET foreign_key_checks = 0;
-SET time_zone = '+02:00';
-SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
-
 CREATE TABLE `game` (
 	`id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+	`image_id` int(10) unsigned NOT NULL,
 	`name` varchar(255) NOT NULL,
 	`slug` varchar(255) NOT NULL,
 	`description` text NOT NULL,
+	PRIMARY KEY (`id`),
+	KEY `image_id` (`image_id`),
+	CONSTRAINT `game_ibfk_1` FOREIGN KEY (`image_id`) REFERENCES `image` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE `image` (
+	`id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+	`path` varchar(255) NOT NULL,
+	`title` varchar(255) NOT NULL,
+	`width` int(10) unsigned NOT NULL,
+	`height` int(10) unsigned NOT NULL,
 	PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+INSERT INTO `image` (`id`, `path`, `title`, `width`, `height`) VALUES
+	(1,	'/images/csgo_icon.png',	'Counter Strike: Global Offensive',	40,	40),
+	(2,	'/images/dota_icon.png',	'Dota 2',	40,	40),
+	(3,	'/images/hots_icon.png',	'Heroes of the Storm',	40,	40),
+	(4,	'/images/hs_icon.png',	'Hearthstone: Heroes of Warcraft',	40,	40),
+	(5,	'/images/lol_icon.png',	'League of Legends',	40,	40),
+	(6,	'/images/sc_icon.png',	'Starcraft 2',	40,	40);
 
 CREATE TABLE `match` (
 	`id` int(10) unsigned NOT NULL AUTO_INCREMENT,

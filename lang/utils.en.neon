@@ -1,0 +1,4 @@
+date:
+	dateFormat: 'd/m/Y'
+	dateTimeFormat: 'd/m/Y G:i:s'
+	timeFormat: 'G:i:s'
