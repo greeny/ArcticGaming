@@ -1,9 +1,9 @@
 {
-	"name": "greeny/sandbox",
-	"description": "Sandbox for all Nette projects.",
+	"name": "greeny/ArcticGaming",
+	"description": "Beta version of ArcticGaming website, currently not used.",
 	"homepage": "http://blatny.org",
 	"type": "project",
-	"license": ["MIT"],
+	"license": ["proprietary"],
 	"authors": [
 		{
 			"name": "Tomáš Blatný",
